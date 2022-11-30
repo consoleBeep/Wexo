@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="stylesheet" th:href="@{/css/index.css}"/>
+	<link rel="shortcut icon" th:href="@{/favicon.ico}" type="image/x-icon"/>
+	<script th:src="@{/js/index.js}"></script>
+    <title>Wexo</title>
+</head>
+<header>
+	<a href="/"><p>home</p></a>
+</header>
+<body>
+	<div class="genres" th:if="${genre.equalsIgnoreCase('all')}">
+		<div class="genre" th:each="genre : ${genres}">
+			<a th:href="'/?start=' + ${start} + '&end=' + ${end} + '&genre=' + ${genre.getKey()}">
+
+			<img class="genre-art" th:attr="src=${coverArt.get(genre.getKey())}"/>
+				<p class="genre-text" th:text="${genre.getKey()} + ' (' + ${genre.getValue()} + ')'"/>
+			</a>
+		</div>
+	</div>
+	<div class="entries" th:if="${!genre.equalsIgnoreCase('all')}">
+		<div class="entry" th:each="entry : ${entries}">
+			<a th:href="'/entry/' + ${entry.id}">
+				<img style="width:250px; height:400px;"
+						class="entry-art" th:attr="src=${entry.getCovers().keySet().toArray()[1]}"/>
+				<p class="entry-text" th:text="${entry.getTitle()}"/>
+			</a>
+		</div>
+	</div>
+</body>
+</html>

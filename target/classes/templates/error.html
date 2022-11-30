@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="stylesheet" th:href="@{/css/error.css}"/>
+    <title>Wexo</title>
+</head>
+
+<body>
+<div class="error-container">
+    <div class="error">
+        <h1>Ups!</h1>
+        <h2>Der gik noget galt, prøv igen senere!</h2>
+        <p class="error-message" th:text="${cause}"></p>
+        <p>Klik <a class="link" href="/">her</a> for at gå til start siden.</p>
+    </div>
+</div>
+</body>
+</html>

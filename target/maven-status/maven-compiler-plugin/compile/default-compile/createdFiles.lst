@@ -1,0 +1,6 @@
+me\casper\wexo\controllers\WebController.class
+me\casper\wexo\WEXOApplication.class
+me\casper\util\Time.class
+me\casper\wexo\api\REST.class
+me\casper\wexo\ServletInitializer.class
+me\casper\wexo\api\Entry.class

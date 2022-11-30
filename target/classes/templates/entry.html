@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<link rel="stylesheet" th:href="@{/css/entry.css}"/>
+	<link rel="shortcut icon" th:href="@{/favicon.ico}" type="image/x-icon"/>
+	<title>Wexo</title>
+</head>
+<header>
+	<a href="/"><p>home</p></a>
+</header>
+<body>
+	<h2 th:text="${entry.title}"/>
+	
+	<h3>Description</h3>
+	<p th:text="${entry.description}"/>
+	
+	<h3>Release Year</h3>
+	<p th:text="${entry.releaseYear}"/>
+	
+	<h3>Actors</h3>
+	<div th:each="actor : ${entry.actors}">
+		<p th:text="${actor}"/>
+	</div>
+	
+	<h3>Directors</h3>
+	<div th:each="director : ${entry.directors}">
+		<p th:text="${director}"/>
+	</div>
+	
+	<h3>Genres</h3>
+	<div class=""></div>
+	<div th:each="genre : ${entry.genres}">
+		<p th:text="${genre}"/>
+	</div>
+
+		<div class="backdrops">
+		<img style="
+	min-height: 1024px;
+    min-width: 100%;
+    width: 100%;
+    height: auto;
+    position: fixed;;
+    z-index: -100;
+    top: 0;
+    left: 0;"
+			 th:src="${entry.backdrops.keySet().toArray()[0]}"/>
+		</div>
+
+</body>
+</html>
